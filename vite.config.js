@@ -15,13 +15,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // This ensures your "@/" imports still work in JavaScript
-      "@": path.resolve(__dirname, "./client/src"),
+      "@": path.resolve(__dirname, "./src"), // Simplified for the client folder
     },
   },
-  root: path.resolve(__dirname, "client"),
+  root: path.resolve(__dirname, "./"), // Look in the current folder
   build: {
-    outDir: path.resolve(__dirname, "../dist"), // Updated to ensure it builds to the root dist folder
+    outDir: "dist", // Keep it inside the project folder
     emptyOutDir: true,
   },
 });
