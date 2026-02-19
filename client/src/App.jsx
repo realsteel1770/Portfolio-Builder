@@ -1,33 +1,35 @@
-import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/not-found";
-import HomePage from "@/pages/home"; 
 
-function Router() {
-  return (
-    <Switch>
-      {/* Route for your main portfolio page */}
-      <Route path="/" component={HomePage} />
-      
-      {/* Fallback for any broken links */}
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
+// Pages
+import Home from "@/pages/Home";
+import Chatbot from "@/pages/Chatbot";
+import NotFound from "./pages/not-found";
 
-function App() {
+export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {/* Provides pop-up alerts for things like "Email Copied" or "CV Downloaded" */}
+        {/* Your UI providers (Toaster handles your alerts) */}
         <Toaster />
-        <Router />
+        
+        <BrowserRouter>
+          <Routes>
+            {/* Main Portfolio Route */}
+            <Route path="/" element={<Home />} />
+            
+            {/* Your new internal Chatbot route */}
+            <Route path="/chatbot" element={<Chatbot />} />
+            
+            {/* Fallback for broken links (404) */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+        
       </TooltipProvider>
     </QueryClientProvider>
   );
 }
-
-export default App;
