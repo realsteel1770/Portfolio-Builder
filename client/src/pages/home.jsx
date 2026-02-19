@@ -215,33 +215,29 @@ export default function HomePage() {
     <div className="min-h-screen text-white bg-black selection:bg-primary/30">
       
       {/* NAVIGATION BAR */}
-      <header className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-3xl">
-        <nav className="glass px-4 py-3 flex items-center justify-between rounded-full border border-white/5 bg-white/5 backdrop-blur-md">
-          <a href="#top" className="h-10 w-10 rounded-full overflow-hidden border border-white/10 flex-shrink-0 transition-transform hover:scale-105">
-            <img src="/profile pic.JPG" 
-            alt="Profile" 
-            className="w-full h-full object-cover" />
-          </a>
+      {/* NAVIGATION BAR */}
+<header className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-2xl px-4">
+  <nav className="glass px-4 py-2 flex items-center justify-between rounded-full border border-white/5 bg-white/10 backdrop-blur-lg">
+    
+    {/* Profile Picture */}
+    <a href="#top" className="h-10 w-10 rounded-full overflow-hidden border border-white/10 flex-shrink-0 transition-transform hover:scale-105">
+      <img src="/profile pic.JPG" alt="Profile" className="w-full h-full object-cover" />
+    </a>
 
-          <div className="flex gap-1 md:gap-3">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className={`px-3 md:px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  active === item.id ? "bg-white/10 text-white" : "text-gray-400 hover:text-white"
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
+    {/* Links - Hidden on very small screens, or wrapping */}
+    <div className="flex items-center gap-3 sm:gap-6 text-sm font-medium">
+      <a href="#projects" className="hover:text-cyan-400 transition-colors">Projects</a>
+      <a href="#experience" className="hover:text-cyan-400 transition-colors">Experience</a>
+      <a href="#skills" className="hover:text-cyan-400 transition-colors">Skills</a>
+      <a href="#education" className="hidden sm:block hover:text-cyan-400 transition-colors">Education</a>
+    </div>
 
-          <Button asChild className="hidden sm:flex rounded-full px-6 h-10 shadow-lg shadow-primary/20">
-            <a href={`mailto:${PROFILE.email}`}>Contact</a>
-          </Button>
-        </nav>
-      </header>
+    {/* Contact Button */}
+    <a href="#contact" className="bg-cyan-500 hover:bg-cyan-400 text-black px-4 py-1.5 rounded-full text-sm font-bold transition-all ml-2">
+      Contact
+    </a>
+  </nav>
+</header>
 
       <main className="pt-40 max-w-5xl mx-auto px-4 pb-20">
         
