@@ -4,7 +4,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 import tailwindcss from "@tailwindcss/vite";
 
-// Fix for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -15,12 +14,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"), // Simplified for the client folder
+      // This tells Vite: when you see "@", look in "client/src"
+      "@": path.resolve(__dirname, "./client/src"),
     },
   },
-  root: path.resolve(__dirname, "./"), // Look in the current folder
   build: {
-    outDir: "dist", // Keep it inside the project folder
+    outDir: 'dist',
     emptyOutDir: true,
   },
 });

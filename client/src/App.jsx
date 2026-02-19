@@ -1,10 +1,10 @@
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/not-found";
-import HomePage from "@/pages/home"; 
+import { Toaster } from "/Users/leosteel/code/Portfolio-Builder/client/src/components/ui/toaster";
+import { TooltipProvider } from "/Users/leosteel/code/Portfolio-Builder/client/src/components/ui/tooltip";
+import NotFound from "/Users/leosteel/code/Portfolio-Builder/client/src/pages/not-found";
+import HomePage from "/Users/leosteel/code/Portfolio-Builder/client/src/pages/home"; 
 
 function Router() {
   return (
