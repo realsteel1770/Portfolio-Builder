@@ -50,3 +50,19 @@
     border-radius: 10px;
   }
 }
+.nav-wrapper {
+  container-type: inline-size;
+  container-name: main-nav;
+}
+@media screen and (max-width: 768px) {
+  .glass a, 
+  .glass button, 
+  .glass div {
+    touch-action: manipulation;
+  }
+  
+  /* Force the dialog to not trigger a viewport shift */
+  [data-radix-popper-content-wrapper] {
+    overflow: hidden !important;
+  }
+}

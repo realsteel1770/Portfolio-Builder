@@ -212,32 +212,31 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen text-white bg-black selection:bg-primary/30">
-      
-      {/* NAVIGATION BAR */}
-      {/* NAVIGATION BAR */}
-<header className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-2xl px-4">
-  <nav className="glass px-4 py-2 flex items-center justify-between rounded-full border border-white/5 bg-white/10 backdrop-blur-lg">
+  <div className="min-h-screen text-white bg-black selection:bg-primary/30">
+  <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-2xl px-2">
+  <nav className="glass px-4 py-2 flex flex-wrap items-center justify-between rounded-[2rem] border border-white/5 bg-white/10 backdrop-blur-lg gap-y-1.5">
     
-    {/* Profile Picture */}
-    <a href="#top" className="h-10 w-10 rounded-full overflow-hidden border border-white/10 flex-shrink-0 transition-transform hover:scale-105">
+    {/* Profile - Slightly smaller to keep the row height down */}
+    <a href="#top" className="h-7 w-7 sm:h-9 sm:w-9 rounded-full overflow-hidden border border-white/10 flex-shrink-0">
       <img src="/profile pic.JPG" alt="Profile" className="w-full h-full object-cover" />
     </a>
 
-    {/* Links - Hidden on very small screens, or wrapping */}
-    <div className="flex items-center gap-3 sm:gap-6 text-sm font-medium">
+    {/* Contact Button - Placed on top row to keep the "pill" feeling */}
+    <a href="#contact" className="bg-cyan-500 text-black px-4 py-1 rounded-full text-[12px] font-bold active:scale-95 transition-transform">
+      Contact
+    </a>
+
+    {/* Links - Now perfectly centered with zero wasted space above/below */}
+    <div className="flex items-center justify-center gap-4 sm:gap-6 text-[12px] sm:text-sm font-medium w-full border-t border-white/5 pt-1.5 mt-0.5">
       <a href="#projects" className="hover:text-cyan-400 transition-colors">Projects</a>
       <a href="#experience" className="hover:text-cyan-400 transition-colors">Experience</a>
       <a href="#skills" className="hover:text-cyan-400 transition-colors">Skills</a>
-      <a href="#education" className="hidden sm:block hover:text-cyan-400 transition-colors">Education</a>
+      <a href="#education" className="hover:text-cyan-400 transition-colors">Education</a>
     </div>
 
-    {/* Contact Button */}
-    <a href="#contact" className="bg-cyan-500 hover:bg-cyan-400 text-black px-4 py-1.5 rounded-full text-sm font-bold transition-all ml-2">
-      Contact
-    </a>
   </nav>
 </header>
+
 
       <main className="pt-40 max-w-5xl mx-auto px-4 pb-20">
         
@@ -366,9 +365,9 @@ export default function HomePage() {
 
         {/* PROJECT DIALOG (MODAL) */}
         <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-          <DialogContent className="glass rounded-3xl p-0 overflow-hidden max-w-2xl border-white/10 bg-black/95 backdrop-blur-2xl">
+          <DialogContent className="glass rounded-3xl p-0 max-w-2xl border-white/10 bg-black/95 backdrop-blur-2xl max-h-[90vh] overflow-y-auto">
             {selectedProject && (
-              <div className="p-10">
+              <div className="p-8 md:p-10"> 
                 <DialogHeader className="mb-6">
                   <div className="h-14 w-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
                     <selectedProject.icon className="h-7 w-7 text-primary" />
