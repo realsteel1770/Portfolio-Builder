@@ -61,7 +61,7 @@
     touch-action: manipulation;
   }
   
-  /* Force the dialog to not trigger a viewport shift */
+
   [data-radix-popper-content-wrapper] {
     overflow: hidden !important;
   }

@@ -43,11 +43,11 @@ const PROFILE = {
 };
 
 const SKILLS = [
-  { label: "Python", detail: "Pandas, NumPy, matplotlib, seaborn" },
-  { label: "SQL", detail: "Querying, schema design" },
+  { label: "Python", detail: "Pandas, NumPy, Matplotlib, Seaborn" },
+  { label: "SQL", detail: "Querying, Schema design" },
   { label: "JavaScript", detail: "React, Node patterns" },
-  { label: "Data & AI", detail: "Analysis, regression, dashboards" },
-  { label: "Concepts", detail: "SDLC, automation, APIs" },
+  { label: "Data & AI", detail: "Analysis, Regression, Dashboards" },
+  { label: "Concepts", detail: "SDLC, Automation, APIs" },
 ];
 
 const EXPERIENCE = [
@@ -56,9 +56,9 @@ const EXPERIENCE = [
     title: "Applied Technology & AI",
     year: "2025",
     bullets: [
-      "automated SIOP (Sales, Inventory, and Operations Planning) workflows by integrating AI-driven logic with custom scripts to eliminate manual data entry errors",
-      "simulation models to stress-test inventory levels and operational capacity, providing data-backed recommendations for supply chain planning.",
-      "sales pipeline dashboard that aggregated real-time data to improve forecasting accuracy and operational transparency for technical teams.",
+      "Automated SIOP (Sales, Inventory, and Operations Planning) workflows by integrating AI-driven logic with custom scripts to eliminate manual data entry errors",
+      "Simulation models to stress-test inventory levels and operational capacity, providing data-backed recommendations for supply chain planning.",
+      "Sales pipeline dashboard that aggregated real-time data to improve forecasting accuracy and operational transparency for technical teams.",
     ],
     icon: Brain,
   },
@@ -67,9 +67,9 @@ const EXPERIENCE = [
     title: "IT Support",
     year: "2025",
     bullets: [
-      "migrate high volumes of physical paper records into a structured, relational digital filing system for improved data accessibility",
+      "Migrate high volumes of physical paper records into a structured, relational digital filing system for improved data accessibility",
       "AI filtering tools to analyse market data and identify client leads.",
-      "targeted email marketing campaigns using data-driven lead selection to ensure outreach was focused.",
+      "Targeted email marketing campaigns using data-driven lead selection to ensure outreach was focused.",
     ],
     icon: GitBranch,
   },
@@ -78,8 +78,8 @@ const EXPERIENCE = [
     title: "Waterfront Counsellor",
     year: "2023",
     bullets: [
-      "waterfront activities for groups of children aged 6–16, maintaining safety while delivering water safety instruction",
-      "collaborative teamwork exercises designed to build confidence and interpersonal communication skills",
+      "Waterfront activities for groups of children aged 6–16, maintaining safety while delivering water safety instruction",
+      "Collaborative teamwork exercises designed to build confidence and interpersonal communication skills",
       "Developed leadership and problem-solving skills by managing group dynamics and resolving challenges during outdoor activities"
     ],
     icon: Trophy,
@@ -109,7 +109,7 @@ const PROJECTS = [
     year: "2025",
     tags: ["Reinforcement Learning", "AWS", "Model Optimisation", "Python"],
     description: "Autonomous racing models designed and optimised using reinforcement learning for competitive representing of Bournemouth University.",
-    longDescription: "Representing Bournemouth University at the MOD Corsham competition, I designed and iteratively optimised autonomous racing models. The project involved deep application of reinforcement learning principles to improve track performance and speed. The final models were deployed and tested on AWS infrastructure against high-level collegiate and industry competitors.",
+    longDescription: "Representing Bournemouth University at the MOD Corsham competition. I designed and iteratively optimised autonomous racing models. The project involved deep application of reinforcement learning principles to improve track performance and speed. The final models were deployed and tested on AWS infrastructure against high-level collegiate and industry competitors.",
     icon: Trophy,
   },
   {
@@ -143,8 +143,8 @@ const EDUCATION = [
     institution: "Bedes Senior School",
     degree: "A Levels",
     period: "2019 – 2023",
-    detail: "Ceramics, BTEC Business & IT — A, D, D",
-    highlights: ["Business Strategy", "IT Fundamentals", "Creative Design"],
+    detail: "Ceramics, BTEC Business & IT — A, Distinction, Distinction",
+    highlights: ["BTECH level 3 National Certificate in Information Technology", "BTECH level 3 national certificate in business"],
     icon: BookOpen,
   },
 ];
