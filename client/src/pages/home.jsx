@@ -30,6 +30,8 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
+import { Link } from "react-router-dom";
+
 // ----------------------------------------------------------------------
 // DATA CONFIGURATION
 // Centralized data for easy updates to CV content.
@@ -429,30 +431,41 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                {/* --- DYNAMIC BUTTON SECTION (NO FALLBACK) --- */}
+                {/* --- DYNAMIC BUTTON SECTION (UPDATED FOR REACT ROUTER) --- */}
                 <div className="flex flex-col gap-4">
-                  {selectedProject.links && selectedProject.links.map((link, idx) => (
-                    <Button 
-                      key={idx} 
-                      asChild 
-                      size="lg"
-                      className={`w-full rounded-full h-14 px-8 transition-all duration-300 ${
-                        link.type === "primary" 
-                          ? "bg-primary text-black shadow-xl shadow-primary/10 hover:opacity-90" 
-                          : "bg-white/5 border border-white/10 text-white hover:bg-white/10 shadow-xl shadow-white/5"
-                      }`}
-                    >
-                      <a 
-                        href={link.url}
-                        download={link.url.endsWith('.pdf')} 
-                        target={link.url.endsWith('.pdf') ? undefined : "_blank"}
-                        rel="noopener noreferrer"
+                  {selectedProject.links && selectedProject.links.map((link, idx) => {
+                    const isInternal = link.url.startsWith('/');
+
+                    return (
+                      <Button 
+                        key={idx} 
+                        asChild 
+                        size="lg"
+                        className={`w-full rounded-full h-14 px-8 transition-all duration-300 ${
+                          link.type === "primary" 
+                            ? "bg-primary text-black shadow-xl shadow-primary/10 hover:opacity-90" 
+                            : "bg-white/5 border border-white/10 text-white hover:bg-white/10 shadow-xl shadow-white/5"
+                        }`}
                       >
-                        {link.label} 
-                        {link.icon ? <link.icon className="ml-2 w-5 h-5" /> : <ArrowUpRight className="ml-2 w-5 h-5" />}
-                      </a>
-                    </Button>
-                  ))}
+                        {isInternal ? (
+                          <Link to={link.url}>
+                            {link.label} 
+                            {link.icon ? <link.icon className="ml-2 w-5 h-5" /> : <ArrowUpRight className="ml-2 w-5 h-5" />}
+                          </Link>
+                        ) : (
+                          <a 
+                            href={link.url}
+                            download={link.url.endsWith('.pdf')} 
+                            target={link.url.endsWith('.pdf') ? undefined : "_blank"}
+                            rel="noopener noreferrer"
+                          >
+                            {link.label} 
+                            {link.icon ? <link.icon className="ml-2 w-5 h-5" /> : <ArrowUpRight className="ml-2 w-5 h-5" />}
+                          </a>
+                        )}
+                      </Button>
+                    );
+                  })}
                 </div>
               </div>
             )}
