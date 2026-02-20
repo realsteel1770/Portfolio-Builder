@@ -7,7 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 // Pages
 import Home from "@/pages/Home";
 import Chatbot from "@/pages/Chatbot";
-import NotFound from "./pages/not-found";
+import NotFound from "@/pages/not-found";
 
 export default function App() {
   return (
