@@ -6,7 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Pages
 import Home from "@/pages/Home";
-import Chatbot from "@/pages/Chatbot";
 import NotFound from "@/pages/not-found";
 
 export default function App() {
@@ -20,9 +19,6 @@ export default function App() {
           <Routes>
             {/* Main Portfolio Route */}
             <Route path="/" element={<Home />} />
-            
-            {/* Your new internal Chatbot route */}
-            <Route path="/chatbot" element={<Chatbot />} />
             
             {/* Fallback for broken links (404) */}
             <Route path="*" element={<NotFound />} />

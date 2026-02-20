@@ -12,6 +12,8 @@ import {
   Download,
   Mail,
   X,
+  ArrowBigLeft,
+  GitBranchIcon,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
@@ -92,17 +94,25 @@ const PROJECTS = [
     year: "2025",
     tags: ["Express.js", "REST API", "Semantic Matching"],
     description: "Full-stack chatbot with semantic matching and accessibility-first frontend.",
-    longDescription: "Developed a robust full-stack chatbot using Express.js and REST APIs, incorporating local semantic embeddings. The system utilises a sophisticated three-layer response architecture that handles small talk, semantic matching, and AI fallback for complex queries. one primary focus was placed on frontend accessibility, which was validated for compliance using WAVE automation tools",
-    liveUrl: "https://your-chatbot-link.onrender.com",
+    longDescription: "Developed a robust full-stack chatbot using Express.js and REST APIs. The system utilizes a three-layer response architecture: small talk, semantic matching, and AI fallback. Accessibility was a primary focus, validated using WAVE automation tools.",
     icon: Bot,
+    links: [
+      { label: "Live Demo", url: "/chatbot", type: "primary", icon: Bot },
+      { label: "Source Code", url: "https://github.com/realsteel1770/historical-Chatbot", type: "secondary", icon: Github }
+    ]
   },
   {
     title: "Air Quality Forecasting System",
     year: "2025",
     tags: ["Python", "Regression", "Visualization"],
     description: "Forecasts AQI using big-data pipeline and regression models.",
-    longDescription: "Engineered a comprehensive big data pipeline to collect, clean, and analyse complex environmental datasets. By applying machine learning through regression analysis, the system successfully forecasts trends in the Air Quality Index. Insights and predictive results are communicated through interactive data visualisations designed to make technical findings accessible.",    icon: Brain,
-    icons: Brain,
+    longDescription: "Engineered a big data pipeline to analyze environmental datasets. Applying machine learning through regression analysis, the system successfully forecasts trends in the Air Quality Index. Findings were summarized in a technical report for Bournemouth University faculty.",
+    icon: Brain,
+    links: [
+      { label: "Read Technical Report", url: "/Big_Data_Engineering_and_Analytics.pdf", type: "primary", icon: BookOpen },
+      { label: "View Heatmaps", url: "air_quality_correlation_heatmap.png", type: "secondary", icon: Sparkles },
+      { label: "Source Code", url: "https://github.com/realsteel1770/AirQualityforecasting", type: "secondary", icon: Github }
+    ]
   },
   {
     title: "AWS DeepRacer Competition",
@@ -270,6 +280,9 @@ export default function HomePage() {
               <Button size="lg" className="rounded-full h-14 px-8 shadow-xl shadow-primary/10" asChild>
                 <a href="/Leo_Steel_CV.pdf" download>Download CV <Download className="ml-2 h-5 w-5" /></a>
               </Button>
+              <Button size="lg" className="rounded-full h-14 px-8 shadow-xl shadow-primary/10" asChild>
+                <a href="https://github.com/realsteel1770" >GitHub <Github className="ml-2 h-5 w-5" /></a>
+              </Button>
             </div>
           </motion.div>
 
@@ -349,18 +362,43 @@ export default function HomePage() {
         {/* EDUCATION SECTION */}
         <section id="education" className="mt-32 scroll-mt-32">
           <SectionHeading kicker="LEARNING" title="Education" icon={<GraduationCap className="w-4 h-4" />} />
-          <div className="border-l border-white/10 pl-10 ml-4">
+          
+          <div className="border-l border-white/10 pl-10 space-y-16 ml-4">
             {EDUCATION.map((edu, idx) => (
-              <div key={idx} className="relative">
-                <div className="absolute -left-[54px] top-1 h-7 w-7 rounded-full bg-black border-2 border-primary flex items-center justify-center">
+              <div key={idx} className="relative group">
+                {/* Timeline Node with Glow effect on hover */}
+                <div className="absolute -left-[54px] top-1 h-7 w-7 rounded-full bg-black border-2 border-primary flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(var(--primary),0.5)]">
                   <edu.icon className="h-3 w-3 text-primary" />
                 </div>
+
                 <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2">
-                  <h3 className="text-2xl font-serif">{edu.institution}</h3>
-                  <span className="text-xs text-gray-500 font-mono">{edu.period}</span>
+                  <h3 className="text-2xl font-serif group-hover:text-primary transition-colors duration-300">
+                    {edu.institution}
+                  </h3>
+                  <span className="text-xs text-gray-500 font-mono bg-white/5 px-3 py-1 rounded-full border border-white/5">
+                    {edu.period}
+                  </span>
                 </div>
-                <p className="text-primary font-medium">{edu.degree}</p>
-                <p className="text-sm text-gray-400 mt-2 italic">{edu.detail}</p>
+
+                <div className="mt-1">
+                  <p className="text-primary font-bold uppercase tracking-wider text-xs">{edu.degree}</p>
+                  <p className="text-sm text-gray-400 mt-2 italic">{edu.detail}</p>
+                </div>
+
+                {/* Highlights Badges */}
+                {edu.highlights && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {edu.highlights.map((item, i) => (
+                      <Badge 
+                        key={i} 
+                        variant="secondary" 
+                        className="bg-white/5 border-white/10 text-white/70 text-[10px] font-mono hover:bg-primary/20 hover:text-primary transition-all"
+                      >
+                        {item}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -378,9 +416,11 @@ export default function HomePage() {
                   <DialogTitle className="text-3xl font-serif text-white">{selectedProject.title}</DialogTitle>
                   <p className="text-primary font-mono text-sm tracking-widest uppercase mt-1">{selectedProject.year}</p>
                 </DialogHeader>
+
                 <DialogDescription className="text-gray-300 text-lg leading-relaxed mb-8">
                   {selectedProject.longDescription}
                 </DialogDescription>
+
                 <div className="flex flex-wrap gap-2 mb-10">
                   {selectedProject.tags.map(tag => (
                     <Badge key={tag} className="bg-white/5 border-white/10 text-white px-4 py-1 rounded-full text-xs">
@@ -388,11 +428,32 @@ export default function HomePage() {
                     </Badge>
                   ))}
                 </div>
-                <Button asChild className="w-full rounded-full h-14 text-lg font-bold shadow-2xl shadow-primary/30">
-                  <a href={selectedProject.liveUrl || "#"} target="_blank" rel="noreferrer">
-                    Live Demo <ArrowUpRight className="ml-2 w-5 h-5" />
-                  </a>
-                </Button>
+
+                {/* --- DYNAMIC BUTTON SECTION (NO FALLBACK) --- */}
+                <div className="flex flex-col gap-4">
+                  {selectedProject.links && selectedProject.links.map((link, idx) => (
+                    <Button 
+                      key={idx} 
+                      asChild 
+                      size="lg"
+                      className={`w-full rounded-full h-14 px-8 transition-all duration-300 ${
+                        link.type === "primary" 
+                          ? "bg-primary text-black shadow-xl shadow-primary/10 hover:opacity-90" 
+                          : "bg-white/5 border border-white/10 text-white hover:bg-white/10 shadow-xl shadow-white/5"
+                      }`}
+                    >
+                      <a 
+                        href={link.url}
+                        download={link.url.endsWith('.pdf')} 
+                        target={link.url.endsWith('.pdf') ? undefined : "_blank"}
+                        rel="noopener noreferrer"
+                      >
+                        {link.label} 
+                        {link.icon ? <link.icon className="ml-2 w-5 h-5" /> : <ArrowUpRight className="ml-2 w-5 h-5" />}
+                      </a>
+                    </Button>
+                  ))}
+                </div>
               </div>
             )}
           </DialogContent>
@@ -400,7 +461,6 @@ export default function HomePage() {
 
       </main>
 
-      {/* FOOTER */}
       {/* FOOTER-STYLE CONTACT SECTION */}
       <section id="contact" className="mt-60 scroll-mt-32 text-center pb-40">
         <motion.div
