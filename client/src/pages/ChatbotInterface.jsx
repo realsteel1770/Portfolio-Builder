@@ -15,17 +15,16 @@ export default function ChatbotInterface() {
     setMessages(prev => [...prev, { sender: "user", text: userText }]);
 
     try {
-      // PROD URL: points to your Render backend
-      const response = await fetch('https://portfolio-builder-cva8.onrender.com/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: userText })
-      });
-      const data = await response.json();
-      setMessages(prev => [...prev, { sender: "neil", text: data.reply }]);
-    } catch (error) {
-      setMessages(prev => [...prev, { sender: "system", text: "Connection Error" }]);
-    }
+        const response = await fetch('https://portfolio-builder-cva8.onrender.com/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question: userText })
+        });
+        const data = await response.json();
+        setMessages(prev => [...prev, { sender: "neil", text: data.reply }]);
+        } catch (error) {
+        setMessages(prev => [...prev, { sender: "system", text: "Connection Error" }]);
+        }
   };
 
   return (
