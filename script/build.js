@@ -1,5 +1,4 @@
 await esbuild({
-    // CHANGE THIS: .ts to .js
     entryPoints: ["server/index.js"], 
     platform: "node",
     bundle: true,

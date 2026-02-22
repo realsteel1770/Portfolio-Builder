@@ -7,7 +7,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 // Pages
 import Home from "@/pages/Home";
 import NotFound from "@/pages/not-found";
-import ChatbotInterface from "@/pages/ChatbotInterface"
 
 export default function App() {
   return (
@@ -20,9 +19,7 @@ export default function App() {
           <Routes>
             {/* Main Portfolio Route */}
             <Route path="/" element={<Home />} />
-
-            <Route path="/chatbot" element={<ChatbotInterface />} />
-            
+           
             {/* Fallback for broken links (404) */}
             <Route path="*" element={<NotFound />} />
           </Routes>
