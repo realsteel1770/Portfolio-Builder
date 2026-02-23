@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Pages
-import Home from "@/pages/Home";
+import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 
 export default function App() {
