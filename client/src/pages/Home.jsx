@@ -9,11 +9,13 @@ import { SkillsSection } from "@/components/home/SkillsSection";
 import { EducationSection } from "@/components/home/EducationSection";
 import { ContactSection } from "@/components/home/ContactSection";
 import { ProjectDialog } from "@/components/home/ProjectDialog";
+
 import { ChatWidget} from "@/components/home/ChatWidget";
 
 export default function HomePage() {
   const [selectedProject, setSelectedProject] = useState(null);
   const sectionIds = useMemo(() => ["top", "Chat", "projects", "Events", "experience", "skills", "education"], []);
+
   const active = useActiveSection(sectionIds);
 
   return (
