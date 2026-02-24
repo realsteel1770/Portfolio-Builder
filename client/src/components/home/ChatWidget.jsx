@@ -26,7 +26,7 @@ export function ChatWidget() {
     setMessages(prev => [...prev, { sender: "user", text: userText }]);
 
     try {
-      const response = await fetch("/api/Chatbot", {
+      const response = await fetch("/.netlify/functions/Chatbot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: userText }),
