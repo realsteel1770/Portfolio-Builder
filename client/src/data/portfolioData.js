@@ -108,7 +108,7 @@ export const PROJECTS = [
     longDescription: "Developed a robust full-stack chatbot using Express.js and REST APIs. The system utilizes a three-layer response architecture: small talk, semantic matching, and AI fallback. Accessibility was a primary focus, validated using WAVE automation tools.",
     icon: Bot,
     links: [
-      { label: "Live Demo", url: "/chatbot", type: "primary", icon: Bot },
+      { label: "Live Demo", url: "https://soft-hotteok-7dd756.netlify.app/", type: "primary", icon: Bot },
       { label: "Source Code", url: "https://github.com/realsteel1770/historical-Chatbot", type: "secondary", icon: Github }
     ]
   },
@@ -120,7 +120,7 @@ export const PROJECTS = [
     longDescription: "Engineered a big data pipeline to analyze environmental datasets. Applying machine learning through regression analysis, the system successfully forecasts trends in the Air Quality Index. Findings were summarized in a technical report for Bournemouth University faculty.",
     icon: Brain,
     links: [
-      { label: "Read Technical Report", url: "/Big_Data_Engineering_and_Analytics.pdf", type: "primary", icon: BookOpen },
+      { label: "Read Technical Report", url: "BDE.pdf", type: "primary", icon: BookOpen },
       { label: "View Heatmaps", url: "air_quality_correlation_heatmap.png", type: "secondary", icon: Sparkles },
       { label: "Source Code", url: "https://github.com/realsteel1770/AirQualityforecasting", type: "secondary", icon: Github }
     ]
