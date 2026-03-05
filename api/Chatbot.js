@@ -48,7 +48,17 @@ export default async function handler(req, res) {
     const result = await model.generateContent(question);
     return res.json({ reply: result.response.text() });
   } catch (error) {
-    console.error("API Error:", error);
-    return res.status(500).json({ reply: "Error: " + (error?.message || "Unknown error") });
+  console.error("API Error:", error);
+
+  // Handle Gemini overload errors
+  if (error?.message?.includes("503")) {
+    return res.json({
+      reply: "The AI is thinking a bit slowly right now. Try asking again in a moment."
+    });
   }
+
+  return res.json({
+    reply: "Something went wrong on my end. Try asking again."
+  });
+}
 }
