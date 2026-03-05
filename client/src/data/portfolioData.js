@@ -21,32 +21,34 @@ export const PROFILE = {
 
 export const SKILLS = [
   { label: "Python", detail: "Pandas, NumPy, Matplotlib, Seaborn" },
-  { label: "SQL", detail: "Querying, Schema design" },
-  { label: "JavaScript", detail: "React, Node patterns" },
-  { label: "Data & AI", detail: "Analysis, Regression, Dashboards" },
-  { label: "Concepts", detail: "SDLC, Automation, APIs" },
+  { label: "SQL", detail: "Querying, Schema Design" },
+  { label: "JavaScript", detail: "React, Node Patterns" },
+  { label: "Data & Machine Learning", detail: "Analysis, Regression, Dashboards" },
+  { label: "Engineering Concepts", detail: "SDLC, Automation, APIs" },
 ];
 
 export const EXPERIENCE = [
   {
-    company: "Volklec",
-    title: "Applied Technology & AI",
-    year: "2025",
-    bullets: [
-      "Automated SIOP workflows by integrating AI-driven logic with custom scripts to eliminate manual data entry errors",
-      "Simulation models to stress-test inventory levels and operational capacity.",
-      "Sales pipeline dashboard that aggregated real-time data to improve forecasting accuracy.",
-    ],
-    icon: Brain,
+  company: "Volklec",
+  title: "Applied Technology & AI",
+  year: "2025",
+  bullets: [
+    "Built scripts and AI-assisted workflows to automate parts of the SIOP process and reduce manual data entry.",
+    "Created simulation models to test how different demand and inventory scenarios would affect operational capacity.",
+    "Connected sales pipeline data with supply chain planning so both teams could work from the same information.",
+    "Built dashboards for the supply chain team to track demand, inventory levels, and planning metrics.",
+    "Developed a sales pipeline dashboard that pulled together live data to help improve forecasting."
+  ],
+  icon: Brain,
   },
   {
     company: "Rebbeck Brothers / My Fire Door LTD",
     title: "IT Support",
     year: "2025",
     bullets: [
-      "Migrated physical paper records into a structured relational digital filing system.",
-      "AI filtering tools to analyse market data and identify client leads.",
-      "Targeted email marketing campaigns using data-driven lead selection.",
+      "Digitised paper records and organised them into a structured relational filing system.",
+      "Built AI-based tools to filter market data and identify potential client leads.",
+      "Helped run targeted email campaigns using data to select the most relevant leads."
     ],
     icon: GitBranch,
   },
@@ -55,9 +57,9 @@ export const EXPERIENCE = [
     title: "Waterfront Counsellor",
     year: "2023",
     bullets: [
-      "Waterfront activities for groups of children aged 6–16, maintaining safety.",
-      "Collaborative teamwork exercises designed to build confidence.",
-      "Developed leadership and problem-solving skills by managing group dynamics."
+      "Led waterfront activities for groups of children aged 6–16 while maintaining strict safety standards.",
+      "Ran team activities designed to build confidence and cooperation.",
+      "Managed group dynamics and solved problems quickly in a fast-paced environment."
     ],
     icon: Trophy,
   },
