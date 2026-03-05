@@ -2,32 +2,53 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import fs from "fs";
 import path from "path";
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") return res.status(405).end();
+let cachedCvText = null;
+let cachedModel = null;
 
-  const { question } = req.body;
+function loadCvText() {
+  if (cachedCvText) return cachedCvText;
 
-  try {
-    console.log("API KEY:", process.env.GEMINI_API_KEY ? "found" : "missing");
-    const cvPath = path.join(process.cwd(), "public", "CV 2.txt");
-    const cvText = fs.readFileSync(cvPath, "utf-8");
+  const cvPath = path.join(process.cwd(), "public", "CV 2.txt");
+  cachedCvText = fs.readFileSync(cvPath, "utf-8");
+  return cachedCvText;
+}
 
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-flash-latest",
-      systemInstruction: `You are Leo Steel. Answer questions about yourself in first person based only on this CV:
+function getModel() {
+  if (cachedModel) return cachedModel;
+
+  const cvText = loadCvText();
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+  cachedModel = genAI.getGenerativeModel({
+    model: "gemini-flash-latest",
+    systemInstruction: `You are Leo Steel. Answer questions about yourself in first person based only on this CV:
 
 ${cvText}
 
-Keep answers concise and friendly. If asked something not in your CV, say you'd be happy to discuss it over email at leowsteel@gmail.com.`
-    });
+Keep answers concise and friendly. If asked something not in your CV, say you'd be happy to discuss it over email at leowsteel@gmail.com.`,
+  });
 
+  return cachedModel;
+}
+
+export default async function handler(req, res) {
+  if (req.method !== "POST") return res.status(405).end();
+
+  try {
+    const { question } = req.body || {};
+    if (!question || typeof question !== "string") {
+      return res.status(400).json({ reply: "Please send a question." });
+    }
+
+    if (!process.env.GEMINI_API_KEY) {
+      return res.status(500).json({ reply: "Server config error: missing GEMINI_API_KEY." });
+    }
+
+    const model = getModel();
     const result = await model.generateContent(question);
-    const reply = result.response.text();
-    res.json({ reply });
-
+    return res.json({ reply: result.response.text() });
   } catch (error) {
     console.error("API Error:", error);
-    res.status(500).json({ reply: "Error: " + error.message });
+    return res.status(500).json({ reply: "Error: " + (error?.message || "Unknown error") });
   }
 }
