@@ -50,15 +50,18 @@ export default async function handler(req, res) {
   } catch (error) {
   console.error("API Error:", error);
 
-  // Handle Gemini overload errors
-  if (error?.message?.includes("503")) {
+  const msg = error?.message || "";
+
+  if (msg.includes("429")) {
     return res.json({
-      reply: "The AI is thinking a bit slowly right now. Try asking again in a moment."
+      reply: "I’ve hit the AI request limit for now 😅 Please try again in a bit."
     });
   }
-
-  return res.json({
-    reply: "Something went wrong on my end. Try asking again."
-  });
+  if (msg.includes("503")) {
+    return res.json({
+      reply: "The AI service is busy right now — try again in a moment."
+    });
+  }
+  return res.json({ reply: "Something went wrong. Try again." });
 }
 }
