@@ -1,9 +1,9 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import OpenAI from "openai";
 import fs from "fs";
 import path from "path";
 
 let cachedCvText = null;
-let cachedModel = null;
+let cachedClient = null;
 
 function getCvText() {
   if (cachedCvText) return cachedCvText;
@@ -13,21 +13,14 @@ function getCvText() {
   return cachedCvText;
 }
 
-function getModel() {
-  if (cachedModel) return cachedModel;
+function getClient() {
+  if (cachedClient) return cachedClient;
 
-  const cvText = getCvText();
-  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-
-  cachedModel = genAI.getGenerativeModel({
-    model: "gemini-flash-latest",
-    systemInstruction: `You are Leo Steel. Answer questions ONLY using the exact information from this CV. Do not make anything up. Keep answers to 2-3 sentences maximum. Be conversational and friendly, not bullet points. If the answer is not in the CV, say "That's not on my CV but email me at leowsteel@gmail.com".
-
-CV:
-${cvText}`
+  cachedClient = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
   });
 
-  return cachedModel;
+  return cachedClient;
 }
 
 export default async (req, context) => {
@@ -45,28 +38,40 @@ export default async (req, context) => {
       });
     }
 
-    if (!process.env.GEMINI_API_KEY) {
+    if (!process.env.OPENAI_API_KEY) {
       return new Response(JSON.stringify({ reply: "Server configuration error." }), {
         status: 500,
         headers: { "Content-Type": "application/json" },
       });
     }
 
-    const model = getModel();
-    const result = await model.generateContent(question);
-    const reply = result.response.text();
+    const cvText = getCvText();
+    const client = getClient();
+
+    const response = await client.responses.create({
+      model: "gpt-4.1-mini",
+      instructions: `You are Leo Steel. Answer questions ONLY using the exact information from this CV. Do not make anything up. Keep answers to 2-3 sentences maximum. Be conversational and friendly, not bullet points. If the answer is not in the CV, say "That's not on my CV but email me at leowsteel@gmail.com".
+
+CV:
+${cvText}`,
+      input: question,
+    });
+
+    const reply = response.output_text || "Sorry, I couldn't generate a reply.";
 
     return new Response(JSON.stringify({ reply }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
-
   } catch (error) {
     console.error("Error:", error);
 
-    return new Response(JSON.stringify({ reply: "Error: " + error.message }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ reply: "Error: " + (error?.message || "Unknown error") }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 };
