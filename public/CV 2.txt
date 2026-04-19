@@ -5,7 +5,7 @@ ________________________________________________________________________________
 Education:
 2019/2023 � A levels - Bedes Senior School
 * Ceramics, BTEC Business and IT - A, D, D
-2024/2028 - BSc Data Science and Artificial Science  - Bournemouth University
+2024/2028 -  Data Science and Artificial Intelligence - Bournemouth University
 * projected high 2:1
 Technical skills
 Programming: Python (Pandas, NumPy, matplotlib, seaborn), SQL, JavaScript
