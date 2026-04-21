@@ -1,51 +1,1 @@
-Leo William Steel
-? Tel Number = 07553 831194 ? Email Address = leowsteel@gmail.com
-Computing undergraduate at Bournemouth University with experience in software development, automation, and data-driven systems through industry roles and university projects. Strong problem-solving skills demonstrated through applied AI, machine learning, and full-stack development projects. Comfortable working in structured development environments and collaborating within technical teams 
-________________________________________________________________________________________________________
-Education:
-2019/2023 ï¿½ A levels - Bedes Senior School
-* Ceramics, BTEC Business and IT - A, D, D
-2024/2028 -  Data Science and Artificial Intelligence - Bournemouth University
-* projected high 2:1
-Technical skills
-Programming: Python (Pandas, NumPy, matplotlib, seaborn), SQL, JavaScript
-Data & AI: data analysis, data visualisation, regression
-Concepts: software development lifecycle, automation, API
-________________________________________________________________________________________________________
-Employment history:
-2025 - Applied technology & AI in supply chain & logistics, Volklec
-* automated SIOP workflows using AI tools, spreadsheets, and code 
-* built simulation models to support inventory and operation planning 
-* developed a dashboard and automated sales pipeline to improve accuracy and efficiency 
-2025 ï¿½ IT work, Rebbeck Brothers & My fire door LTD
-* digitised paper records into a structured digital filing system 
-* using AI tools to identify and filter potential clients 
-* Supported targeted email campaign using data-driven lead selection 
-2023 - Waterfront Counsellor, Gold Arrow Camp, California
-* supported water activities and taught water safety to children aged 6 ï¿½ 16 
-* organised group activities and encouraged teamwork and responsibility 
-________________________________________________________________________________________________________
-Projects & Experience 
-2025 ï¿½ conversational AI chatbot 
-* developed a full-stack chatbot using Express.js, REST API, and local semantic embeddings
-* Implemented a three-layer response system combining small talk, semantic matching, and AI fallback
-* designed an accessible frontend and validated using and compliance with WAVE tools 
-2025 ï¿½ MOD Corsham AWS DeepRacer competition (representing Bournemouth University)
-* designed and optimised autonomous racing models using reinforcement learning 
-* Competed on AWS representing Bournemouth University 
-2025 ï¿½ Air quality forecasting system
-* built a big data pipeline to collect and analyse environmental datasets
-* Applied machine learning using regression to forecast the air quality index 
-* used data visualisation to communicate insights 
-2025 ï¿½ Technology Work Experience ï¿½ JLLT (JLL Technologies)
-* gained exposure to enterprise technology support business operations 
-* participated in meetings and technical discussions with senior engineers
-2024/2025 - Hackathon Projects ï¿½ Bournemouth University 
-* developed prototype solutions for sustainability and conversational AI challenges 
-2025 ï¿½ CIB week ï¿½ Bournemouth University 
-* designed a referral system for prototypes for BAE Systems 
-* Conducted stakeholders research, systems analysis and SQL databases design 
-* presented a solution to industry professionals 
-_______________________________________________________________________________________________
-
- Reference available on request
+Leo William Steel? Tel Number = 07553 831194 ? Email Address = leowsteel@gmail.comUndergraduate student at Bournemouth University, studying Data Science and Artificial Intelligence with a keen interest in data analytics. Experiences in software development, automation and AI through industry roles, university projects, and competition challenges. Comfortable working in development environments and collaborating within technical teams. ________________________________________________________________________________________________________Education:2019 - 2023 Ð A levels, Bedes Senior School * Ceramics, BTEC Business and IT * School prefect 2024 - 2028 - Bournemouth University * BSc Data Science and Artificial IntelligenceTechnical skillsProgramming: Python (Pandas, NumPy, matplotlib, seaborn), SQL, JavaScriptData & AI: data analysis, data visualisation, regressionConcepts: software development lifecycle, automation, REST API________________________________________________________________________________________________________Employment history:2025 - Applied technology & AI in supply chain & logistics, Volklec* automated SIOP workflows using AI tools, spreadsheets, and code * built simulation models to support inventory and operation planning * developed a dashboard and automated sales pipeline to improve accuracy and efficiency 2025 Ð IT work, Rebbeck Brothers & My fire door LTD* digitised paper records into a structured digital filing system Used AI tools to identify and filter potential clients * Supported targeted email campaign using data-driven lead selection 2023 - Waterfront Counsellor, Gold Arrow Camp, California* supported water activities and taught water safety to children aged 6 Ð 16 * organised group activities and encouraged teamwork and responsibility ________________________________________________________________________________________________________Additional Experience & Activities2025 Ð Present Ð Bournemouth University Rowing Team * represented the university at BUCs and external Regattas* balanced competitive sports alongside academic responsibilities 2023 Ð 2024 Ð Gap year * managed budgeting, planning and logistics a cross southeast Asia * built confidence working in unfamiliar environments ________________________________________________________________________________________________________Projects & Experience 2025 Ð conversational AI chatbot * developed a full stack chatbot using Express.js, REST API, and local semantic embeddings* Implemented a three-layer response system combining small talk, semantic matching, and AI fallback* designed an accessible frontend and validated using and compliance with WAVE tools 2025 Ð MOD Corsham AWS DeepRacer competition (representing Bournemouth University)* designed and optimised autonomous racing models using reinforcement learning * Competed on AWS representing Bournemouth University 2025 Ð Air quality forecasting system* built a big data pipeline to collect and analyse environmental datasets* Applied machine learning using regression to forecast the air quality index * used data visualisation to communicate insights 2025 Ð Technology Work Experience Ð JLLT (JLL Technologies)* gained exposure to enterprise technology support business operations * participated in meetings and technical discussions with senior engineers2024 - 2025 - Hackathon Projects Ð Bournemouth University * developed prototype solutions for sustainability and conversational AI challenges 2025 Ð CIB week Ð Bournemouth University * designed a referral system for prototypes for BAE Systems * Conducted stakeholders research, systems analysis and SQL databases design * presented a solution to industry professionals _______________________________________________________________________________________________ Reference available on request
