@@ -13,8 +13,8 @@ import {
 
 export const PROFILE = {
   name: "Leo Steel",
-  role: "Computing undergraduate",
-  tagline: "I’m a Computing student at Bournemouth University with a passion for building smart, efficient systems. From AI and machine learning to automation and full-stack development, I love solving real problems and having fun doing it.",
+  role: "BSc Data Science and Artificial Intelligence undergraduate",
+  tagline: "I’m a Data Science and Artificial Intelligence student at Bournemouth University with a passion for building smart, efficient systems. From AI and machine learning to automation and full-stack development, I love solving real problems and having fun doing it.",
   location: "Bournemouth, UK",
   email: "leowsteel@gmail.com",
 };
